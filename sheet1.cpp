@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <iomanip>
 
 
 class Operations 
@@ -78,11 +79,13 @@ private:
 
     }
 
+
+
 public:
     // public contructor
     Operations() 
     {
-
+ 
         // gather inputs and solve, 
         inputs();
         solve();
@@ -94,15 +97,9 @@ public:
     {
         // public function for formating,, 
 
-        // if our minutes are less than 10, it would look better to add a 0 before the minutes 
-        if (solution[1] < 10)
-        {
-            // we can return here rather than creating an else condition ((personal prefernce)) 
-            std::cout << "Train arrives in " << solution[0] << ":0" << solution[1] << std::endl;
-            return;
-        }
+        std::cout << "Train arrives in " << solution[0] << ":" << std::setw(2) << std::setfill('0') << solution[1] << std::endl;
 
-        std::cout << "Train arrives in " << solution[0] << ":" << solution[1] << std::endl;
+
     }
 
 };
@@ -110,10 +107,13 @@ public:
 
 int main()
 {
-    // create our object and get the solution 
-    Operations assingment = Operations();
 
-    // perhaps this would be better if it returned the value, although we have no further operations so it is obsolete
-    assingment.getSolution();
-    
+    while (1)
+    {
+        // create our object and get the solution 
+        Operations assingment = Operations();
+
+        // perhaps this would be better if it returned the value, although we have no further operations so it is obsolete
+        assingment.getSolution();
+    }
 }
